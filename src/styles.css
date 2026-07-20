@@ -1,2 +1,33 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: night --default, dark --prefersdark;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat-alternates/MontserratAlternates-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+@theme {
+  /* 1. Definimos los movimientos premium */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* 2. Creamos la utilidad personalizada */
+  --animate-premium-in: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
